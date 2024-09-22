@@ -22,8 +22,8 @@ export default function HomePage() {
 
   React.useEffect(() => {
     if (
-      window.localStorage.getItem('completed_tasks') &&
-      window.localStorage.getItem('pending_tasks')
+      !window.localStorage.getItem('completed_tasks') &&
+      !window.localStorage.getItem('pending_tasks')
     ) {
       window.localStorage.setItem(
         'completed_tasks',
