@@ -82,7 +82,8 @@ export default function Modal({
               autoFocus
               value={valueInput}
               onChange={(e) => {
-                setValueInput(e.target.value), setError('');
+                setValueInput(e.target.value);
+                setError('');
               }}
               id="task"
               placeholder="Digite"
