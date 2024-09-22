@@ -5,13 +5,12 @@ import { useAppContext } from '@/_context/app-context';
 import React from 'react';
 
 export default function HomePage() {
-  const [name, setName] = React.useState(
-    window.localStorage.getItem('name_user_tasks') || '',
-  );
+  const [name, setName] = React.useState('');
 
   const { completedTasks, pendingTasks } = useAppContext();
 
   React.useEffect(() => {
+    setName(window.localStorage.getItem('name_user_tasks') || '')
     if (window.localStorage.getItem('name_user_tasks'))
       return setName(window.localStorage.getItem('name_user_tasks') as string);
     const name_storage = window.prompt('Qual seu nome?');
