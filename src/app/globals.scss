@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 1.5rem 3.5rem;
+}
+
+@media (max-width: 400px) {
+  body {
+    padding: 1.5rem;
+  }
+}
