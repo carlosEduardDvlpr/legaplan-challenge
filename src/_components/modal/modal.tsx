@@ -16,7 +16,6 @@ export default function Modal({
     setModal,
     setPendingTasks,
     pendingTasks,
-    setCompletedTasks,
     completedTasks,
     taskDelete,
     setTaskDelete,
