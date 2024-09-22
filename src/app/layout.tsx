@@ -3,7 +3,7 @@ import { Inter_Tight } from 'next/font/google';
 import './globals.scss';
 import { ContextProvider } from '@/_context/app-context';
 
-export const font_inter_tight = Inter_Tight({
+ const font_inter_tight = Inter_Tight({
   weight: ['400', '500'],
   style: ['normal'],
   subsets: ['latin'],
