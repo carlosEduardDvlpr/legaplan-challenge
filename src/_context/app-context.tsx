@@ -25,15 +25,19 @@ export const useAppContext = () => {
 export function ContextProvider({ children }: { children: React.ReactNode }) {
   const [modal, setModal] = React.useState(false);
   const [pendingTasks, setPendingTasks] = React.useState<string[]>(() => {
-    if (window !== undefined) {
+    if (typeof window === 'undefined' || !window.localStorage.pending_tasks) {
+      return ['Fazer bolo', 'Passear'];
+    } else {
       const initial = window.localStorage.getItem('pending_tasks');
-      return initial ? JSON.parse(initial) : ['Fazer bolo', 'Passear'];
+      return JSON.parse(initial as string);
     }
   });
   const [completedTasks, setCompletedTasks] = React.useState<string[]>(() => {
-    if (window !== undefined) {
+    if (typeof window === 'undefined' || !window.localStorage.completed_tasks) {
+      return ['Estudar'];
+    } else {
       const initial = window.localStorage.getItem('completed_tasks');
-      return initial ? JSON.parse(initial) : ['Estudar'];
+      return JSON.parse(initial as string);
     }
   });
   const [modalMode, setModalMode] = React.useState<'del' | 'add'>('add');
