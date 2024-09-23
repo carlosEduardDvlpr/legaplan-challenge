@@ -1,13 +1,10 @@
 'use client';
 import Header from '@/_components/header/header';
 import Tasks from '@/_components/tasks/tasks-container';
-import { useAppContext } from '@/_context/app-context';
 import React from 'react';
 
 export default function HomePage() {
   const [name, setName] = React.useState('');
-  const { completedTasks, pendingTasks, setCompletedTasks, setPendingTasks } =
-    useAppContext();
 
   React.useEffect(() => {
     setName(window.localStorage.getItem('name_user_tasks') || '');
