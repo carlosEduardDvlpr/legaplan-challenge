@@ -32,9 +32,9 @@ export default function Modal({
   const handleTask = () => {
     if (valueInput) {
       setPendingTasks((tasks) => [...tasks, valueInput]);
-      setValueInput('');
       setModal(false);
       setError('');
+      setValueInput('');
     } else {
       setError('Insira um valor');
     }
@@ -48,26 +48,13 @@ export default function Modal({
       pendingTasks.splice(indexItem, 1);
       setModal(false);
       setTaskDelete('');
-      if (window.localStorage.getItem('pending_tasks')) {
-        window.localStorage.setItem(
-          'pending_tasks',
-          JSON.stringify(pendingTasks),
-        );
-      }
     } else {
       const indexItem = completedTasks.findIndex((item) => item === taskDelete);
       completedTasks.splice(indexItem, 1);
       setModal(false);
       setTaskDelete('');
-      if (window.localStorage.getItem('completed_tasks')) {
-        window.localStorage.setItem(
-          'completed_tasks',
-          JSON.stringify(completedTasks),
-        );
-      }
     }
   };
-
   if (open && modal && mode === 'add')
     return (
       <div className={styles.modal_backdrop}>

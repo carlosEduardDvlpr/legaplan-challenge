@@ -29,15 +29,6 @@ export function ContextProvider({ children }: { children: React.ReactNode }) {
   const [modalMode, setModalMode] = React.useState<'del' | 'add'>('add');
   const [taskDelete, setTaskDelete] = React.useState('');
 
-  React.useEffect(() => {
-    setCompletedTasks(
-      JSON.parse(window.localStorage.getItem('completed_tasks') as string) || [],
-    );
-    setPendingTasks(
-      JSON.parse(window.localStorage.getItem('pending_tasks') as string) || [],
-    );
-  }, []);
-
   return (
     <Context.Provider
       value={{
