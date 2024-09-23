@@ -48,13 +48,26 @@ export default function Modal({
       pendingTasks.splice(indexItem, 1);
       setModal(false);
       setTaskDelete('');
+      if (window !== undefined) {
+        window.localStorage.setItem(
+          'pending_tasks',
+          JSON.stringify(pendingTasks),
+        );
+      }
     } else {
       const indexItem = completedTasks.findIndex((item) => item === taskDelete);
       completedTasks.splice(indexItem, 1);
       setModal(false);
       setTaskDelete('');
+      if (window !== undefined) {
+        window.localStorage.setItem(
+          'completed_tasks',
+          JSON.stringify(completedTasks),
+        );
+      }
     }
   };
+
   if (open && modal && mode === 'add')
     return (
       <div className={styles.modal_backdrop}>
